@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ProdductMappers">
+
+    <!--查询所有订单-->
+    <select id="findProductDataList" resultType="com.dataoObject.ProductCategory">
+        select
+        category_id as categoryId,
+        category_name as categoryName,
+        category_type as categoryType,
+        create_time as createTime,
+        update_time as updateTime
+        from
+        product_category
+    </select>
+
+</mapper>

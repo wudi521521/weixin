@@ -1,0 +1,16 @@
+server:
+  port: 8090
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
+
+spring:
+  datasource:
+    url : jdbc:mysql://localhost:3306/weixin_springboot
+    username : root
+    password : root
+    driver-class-name : com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto : update
+      show-sql : true

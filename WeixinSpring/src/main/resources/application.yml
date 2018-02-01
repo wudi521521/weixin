@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: dev #关联配置文件，如果关联多个配置文件使用逗号分隔就可以
+#微信测试 wechat 配置文件
+wechat:
+  mpAppId: wx7ae4de6a618cbe0dmp
+  mpAppSecret: 7344b63ea02f5308d660caab53c10653mp
+  openAppId: wx6ad144e54af67d87open
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2eopen
+  mchId: 1451851102
+  mchKey: wx790b136fb3f3756e
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://wudi.nat100.top/sell/pay/notify
+#sell项目中共常用的配置文件
+sellProject:
+  projectUrl: http://wudi.nat100.top
+  errorUrl: common/error
+  successUrl: common/success
+  sellerProudctListUrl: /sell/seller/product/list
+  sellerProductIndexUrl: /sell/seller/product/index
+  sellerOrderListUrl: /sell/seller/order/list
+  sellerOrderIndexUrl: /sell/seller/order/index
+  sellerCategoryListUrl: /sell/seller/category/list
+  sellerCategoryIndexUrl: /sell/seller/category/index
+  #日志级别
+logging:
+  level:
+  com.mapper.ProdductMappers: trace
+ #mybaties映射的配置文
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+
+

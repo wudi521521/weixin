@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  context-path: /sell
+  tomcat:
+    uri-encoding: UTF-8
+  #连接数据库
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weixin_springboot?characterEncoding=utf-8&useSSL=false
+    password: root
+    username: root
+ #spring data jpa
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  #返回的数据为null值，字段就不返回
+  jackson:
+    default-property-inclusion: non_null
+  #redis的配置文件
+  redis:
+    host: 192.168.40.246
+    port: 6379
+    password:
+
+  #mvc:
+    #view:
+      #prefix: public
+     # suffix: .html
+    #static-path-pattern:

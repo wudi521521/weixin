@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <!--logback核心包,控制台打印-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <!--保存不同等级的日志-->
+    <!--只保存info-->
+    <appender name="infoName" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--过滤掉-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                   <level>ERROR</level><!--&lt;!&ndash;级别&ndash;&gt;-->
+                   <onMatch>DENY</onMatch><!--&lt;!&ndash;禁用&ndash;&gt;-->
+                   <onMismatch>ACCEPT</onMismatch><!--&lt;!&ndash;接受&ndash;&gt;-->
+        </filter>
+        <!--编码格式-->
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>
+                /wudi/wudi/info.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--只保存error-->
+    <appender name="errorName" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根据范围在过滤-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <!--编码格式-->
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>
+                /wudi/wudi/error.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--日志滚动的，保存文件路径-->
+    <appender name="rollingdate" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--编码格式-->
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>
+                /wudi/wudi/common.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <!--指定文件-->
+    <root level="info">
+         <appender-ref ref="consoleLog"/>
+         <appender-ref ref="rollingdate"/>
+         <appender-ref ref="infoName"/>
+         <appender-ref ref="errorName"/>
+
+    </root>
+</configuration>
